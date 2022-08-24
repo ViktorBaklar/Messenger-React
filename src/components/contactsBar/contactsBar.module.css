@@ -1,0 +1,29 @@
+.contactsBar {
+    /* width: 40%; */
+    flex-grow: 1;
+}
+
+.header {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.userAvatar {
+    margin-bottom: 15px;
+}
+
+.contactsList {
+    padding: 10px;
+}
+
+.chats {
+    margin: 0 0 20px 0;
+}
+
+.contactsListWrapper {
+    padding: 5px 0 10px 0;
+}
+/* .search {
+    width: 100%;
+    padding:0 5px;
+} */

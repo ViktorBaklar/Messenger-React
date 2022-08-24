@@ -1,0 +1,27 @@
+.chatBar {
+    border-left: 1px solid #000;
+    flex-grow: 2;
+}
+
+.currentContactWrap {
+    padding: 10px;
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.imgWrap {
+    padding: 10px;
+}
+
+.contactName {
+    padding-left: 10px;
+}
+
+.msgWrap {
+    padding: 10px;
+}
+
+.inputMsgWrap {
+    padding: 10px;
+    border-top: 1px solid #000;
+}
