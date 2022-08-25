@@ -1,8 +1,8 @@
 
-// import ContactsListItem from './ContactsListItem'
+import ContactsListItem from './ContactsListItem'
 import styles from './contactsBar.module.css'
 
-const ContactsList = (/* {items, onClick} */) => {
+const ContactsList = ({ items, showMsg }) => {
     // const store = useStore()
     // const contactsList = store.contacts
 
@@ -12,19 +12,19 @@ const ContactsList = (/* {items, onClick} */) => {
                 Chats
             </h1>
             <ul className={styles.contactsListWrapper}>
-                {/* {items.map(({id, name, lastDate, lastMsg, avatar}) => {
+                {items.map(({id, name, /* lastDate, lastMsg, */ avatar}) => {
                     return (
                         <ContactsListItem 
                         key={id}
                         id={id}
                         avatar={avatar}
                         name={name}
-                        lastDate={lastDate}
-                        lastMsg={lastMsg}
-                        onClick={onClick}
+                        // lastDate={lastDate}
+                        // lastMsg={lastMsg}
+                        showMsg={showMsg}
                         />
                     )
-                })} */}
+                })}
             </ul>
         </div>
     )

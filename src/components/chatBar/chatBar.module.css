@@ -1,6 +1,9 @@
 .chatBar {
     border-left: 1px solid #000;
     flex-grow: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
 }
 
 .currentContactWrap {
@@ -19,9 +22,19 @@
 
 .msgWrap {
     padding: 10px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+.msgWrap::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
 
 .inputMsgWrap {
     padding: 10px;
     border-top: 1px solid #000;
+    height: 40px;
 }

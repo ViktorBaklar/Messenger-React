@@ -1,12 +1,11 @@
-import ContactsList from './ContactsList'
-import Header from './Header'
+// import ContactsList from './ContactsList'
+// import Header from './Header'
 import styles from './contactsBar.module.css'
 
-const ContactsBar = () => {
+const ContactsBar = ({ children }) => {
     return (
         <div className={styles.contactsBar}>
-            <Header />
-            <ContactsList />
+            {children}
         </div>
     )
 }
