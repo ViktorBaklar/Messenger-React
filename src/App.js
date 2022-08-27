@@ -61,6 +61,26 @@ class App extends Component {
     }));
   };
 
+  addMessage = (message, messageDate, contactIdAddMessage, myMessage) => {
+    const { contacts } = this.state;
+    const newMessage = {
+      message,
+      messageDate,
+      myMessage,
+    };
+  
+    contacts.map((item, index) => {
+      if (item.id === contactIdAddMessage) 
+      {item.messages.push(newMessage);
+      contacts.push(...contacts.splice(0,index))
+    }});
+    
+    this.setState(({ contacts }));
+    //console.log(data);
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    
+  };
+
   filterHandler = event => {
     this.setState({ filter: event.currentTarget.value });
   };
@@ -68,20 +88,35 @@ class App extends Component {
   getFilteredContacts = () => {
     const { filter, contacts } = this.state;
     const regExp = new RegExp(filter, 'gi');
-
+    
     if (filter) {
       return contacts.filter(contact => regExp.test(contact.name));
     }
-
-    return contacts;
+    
+    return contacts.sort(
+      (a, b) =>
+        new Date(b.messages.at(-1).messageDate.toString()) -
+        new Date(a.messages.at(-1).messageDate.toString())
+    );
   };
+
+  // setActiveID = () => {
+  //   const { contacts } = this.state
+  //   const sc = contacts.sort(
+  //     (a, b) =>
+  //       new Date(b.messages.at(-1).messageDate.toString()) -
+  //       new Date(a.messages.at(-1).messageDate.toString())
+  //     );
+  //   this.setState(() => ({
+  //     activeID: sc[0].id
+  //   } ))
+  // }
 
   activeContactChange = id => {
     this.setState(() => {
       return {activeID: id };
     });
   }
-
 
   // showMsg = () => {
   //   const { activeID, contacts } = this.state;
@@ -114,7 +149,7 @@ class App extends Component {
         <ChatBar>
           <CurrentContactWrap data={currentContact}/>
           <MsgWrap data={currentContact} msgs={contactMsgs}/>
-          <InputMsgWrap/>
+          <InputMsgWrap addMessage={this.addMessage} activeID={this.state.activeID}/>
         </ChatBar>
       </div>
     );
