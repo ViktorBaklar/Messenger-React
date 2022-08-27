@@ -9,7 +9,7 @@ const ContactsListItem = ({ id, name, lastDate, lastMsg, avatar, onContactClick 
             </div>
             <div className={styles.contactWrap}>
                 <div className={styles.contactName}>{name}</div>
-                <div className={styles.contactLastMsg}>{lastMsg}</div>
+                <div className={styles.contactLastMsg}>{(lastMsg.length > 40)?lastMsg.slice(0, 40) + '...':lastMsg}</div>
             </div>
             <div className={styles.contactLastDate}>{lastDate}</div>
         </li>

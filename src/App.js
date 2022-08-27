@@ -46,6 +46,14 @@ class App extends Component {
     const contact = {
       id: uniqueId("prefix-"),
       name,
+      avatar: 'https://i.pravatar.cc/30?20',
+      messages: [
+        {
+          messageDate: '',
+          message: "",
+          myMessage: true
+        }
+      ]
     }
 
     const { contacts } = this.state
@@ -68,7 +76,7 @@ class App extends Component {
       messageDate,
       myMessage,
     };
-  
+  // eslint-disable-next-line
     contacts.map((item, index) => {
       if (item.id === contactIdAddMessage) 
       {item.messages.push(newMessage);
@@ -143,7 +151,7 @@ class App extends Component {
     return (
       <div className="App" >
         <ContactsBar>
-          <Header contactName={this.state.filter} onChange={this.filterHandler}/>
+          <Header onSubmit={this.addContact} contactName={this.state.filter} onChange={this.filterHandler}/>
           <ContactsList items={filteredContacts} onContactClick={this.activeContactChange}/>
         </ContactsBar>
         <ChatBar>

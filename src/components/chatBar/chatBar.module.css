@@ -1,7 +1,7 @@
 .chatBar {
     border-left: 1px solid grey;
     /* flex-grow: 2; */
-    flex-grow: 1;
+    flex-basis: 65%;
     height: 100vh;
     display: flex;
     flex-direction: column; 
@@ -44,17 +44,34 @@
 }
 
 .myMsg {
+    display: flex;
+    flex-direction: column;
+    /* align-content: end; */
+    /* justify-content: end; */
     margin-bottom: 20px;
     text-align: right;
 }
 
+.myMsg .textContainer {
+    align-self: end;
+}
+
 .msgText {
+    display: flex;
+    overflow: hidden;
     font-size: 16px;
     padding: 5px;
     border-radius: 16px;
+    /* box-sizing: border-box; */
+    /* width: 100%; */
+    /* max-width: 400px; */
+    /* max-width: 80%; */
+    text-align: left;
 }
 
 .myMsg .msgText {
+    align-self: end;
+    /* text-align: right; */
     background-color: lightgray;
 }
 
@@ -74,8 +91,27 @@
 }
 
 .inputMsgWrap {
+    position: relative;
     padding: 10px;
     background-color: lightgray;
     border-top: 1px solid grey;
     height: 40px;
 }
+
+.button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    align-self: center;
+    background-image:  url(https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/48/paper-plane-icon.png);
+    background-position: center;
+    background-origin: content-box;
+    border-radius: 50%;
+    border:1px solid rgb(215, 215, 215);
+    transform: translate(-50%, 50%);
+   
+    color:white;
+};

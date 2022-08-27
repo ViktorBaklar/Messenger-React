@@ -1,17 +1,17 @@
-// import Input from '../UI/input/input'
 // import styles from './chatBar.module.css'
 
 // const InputMsgWrap = ({value, onSubmit}) => {
-//     return (
-//         <div className={styles.inputMsgWrap}>
-//             <Input placeHolder='Type your message' value={value} onSubmit={onSubmit}/>
-//         </div>
-//     )
-// }
-
-// export default InputMsgWrap
-
+    //     return (
+        //         <div className={styles.inputMsgWrap}>
+        //             <Input placeHolder='Type your message' value={value} onSubmit={onSubmit}/>
+        //         </div>
+        //     )
+        // }
+        
+        // export default InputMsgWrap
+        
 import { Component } from "react";
+import Input from '../UI/input/input'
 import styles from './chatBar.module.css';
 
 class InputMsgWrap extends Component {
@@ -52,18 +52,19 @@ class InputMsgWrap extends Component {
   render() {
     return (
       <div className={styles.inputMsgWrap}>
-        <form className="" onSubmit={this.sendNewMessage}>
-          <input
-            type="text"
-            name="message"
-            value={this.state.message}
-            className={styles.msgInput}
-            placeholder="Type your message"
-            onChange={this.onInputChange}
-            required
-          />
-          <button
-           className={styles.button} type="submit"> </button>
+        <form className={styles.msgInputForm} onSubmit={this.sendNewMessage}>
+            <Input
+                type="text"
+                name="message"
+                value={this.state.message}
+                className={styles.msgInput}
+                placeholder="Type your message"
+                onChange={this.onInputChange}
+                required
+            />
+            <button
+                className={styles.button} type="submit"> 
+            </button>
         </form>
       </div>
     );
