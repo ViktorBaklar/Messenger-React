@@ -1,10 +1,11 @@
 import { Component } from "react"
 import uniqueId from 'lodash/uniqueId';
-// import db from './db/db.json'
+import { Data } from './db/data'
 import ContactsBar from './components/contactsBar/ContactsBar'
 import Header from './components/contactsBar/Header'
 import ContactsList from './components/contactsBar/ContactsList'
 import ChatBar from './components/chatBar/ChatBar';
+// import CurrentContactMsg from './components/chatBar/CurrentContactMsg'
 import CurrentContactWrap from './components/chatBar/CurrentContactWrap'
 import MsgWrap from './components/chatBar//MsgWrap'
 import InputMsgWrap from './components/chatBar//InputMsgWrap'
@@ -20,77 +21,10 @@ import './App.css';
 // }
 
 class App extends Component {
-  // state = {
-  //   contacts: db,
-  //   filter: '',
-  // };
   state = {
-    contacts: [
-      {
-          "id": 1,
-          "name": "Alice Freeman",
-          "avatar": "https://i.pravatar.cc/300?23",
-          "messages": [
-            {
-              "messageDate": "2017-06-12T08:25:43.511Z",
-              "message": "Sorry. I can't do what you asked",
-              "myMessage": true
-            },
-            {
-              "messageDate": "2017-06-12T08:36:43.511Z",
-              "message": "You are the worst!",
-              "myMessage": false
-            }
-          ]
-      },
-      {
-        "id": 2,
-        "name": "Josefina",
-        "avatar": "https://i.pravatar.cc/300?45",
-        "messages": [
-          {
-            "messageDate": "2017-04-22T16:00:43.511Z",
-            "message": "Quickly come to the meeting room 1B, we have a big server isue",
-            "myMessage": false
-          },
-          {
-            "messageDate": "2017-04-22T16:06:49.511Z",
-            "message": "I'm having breakfast right now, can't you wait for 10 mins?",
-            "myMessage": true
-          },
-          {
-            "messageDate": "2017-04-22T16:10:55.511Z",
-            "message": "We are loosing money! Quick!",
-            "myMessage": false
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Velazquez",
-        "avatar": "https://i.pravatar.cc/300?54",
-        "messages": [
-          {
-            "messageDate": "2012-03-18T18:25:43.511Z",
-            "message": "Hi, I'm waiting you",
-            "myMessage": true
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Barrera",
-        "avatar": "https://i.pravatar.cc/300?21",
-        "messages": [
-          {
-            "messageDate": "2017-02-10T13:52:43.511Z",
-            "message": "Hello! Can you call me in the evening",
-            "myMessage": false
-          }
-        ]
-      }
-    ],
+    contacts: Data,
     filter: '',
+    activeID: 1,
   };
 
   componentDidMount() {
@@ -142,23 +76,44 @@ class App extends Component {
     return contacts;
   };
 
-  // deleteContact = id => {
-  //   this.setState(prevState => ({
-  //     contacts: prevState.contacts.filter(contact => contact.id !== id),
-  //   }));
-  // };
+  activeContactChange = id => {
+    this.setState(() => {
+      return {activeID: id };
+    });
+  }
+
+
+  // showMsg = () => {
+  //   const { activeID, contacts } = this.state;
+  //   const activeContact = contacts.filter(contact => contact.id === activeID)
+  //   return activeContact[0]
+  // }
+  showContactData = () => {
+    const { activeID, contacts } = this.state;
+    const activeContact = contacts.filter(contact => contact.id === activeID)
+    return activeContact[0]
+  }
+  showMsg = () => {
+    const { activeID, contacts } = this.state;
+    const activeContact = contacts.filter(contact => contact.id === activeID)
+    return activeContact[0].messages
+  }
 
   render() {
     const filteredContacts = this.getFilteredContacts();
+    // const currentContact = this.showMsg();
+    const currentContact = this.showContactData();
+    const contactMsgs = this.showMsg();
+    // const contactMsgs = currentContact.messages
     return (
       <div className="App" >
         <ContactsBar>
           <Header contactName={this.state.filter} onChange={this.filterHandler}/>
-          <ContactsList items={filteredContacts} showMsg={this.deleteContact}/>
+          <ContactsList items={filteredContacts} onContactClick={this.activeContactChange}/>
         </ContactsBar>
         <ChatBar>
-          <CurrentContactWrap/>
-          <MsgWrap/>
+          <CurrentContactWrap data={currentContact}/>
+          <MsgWrap data={currentContact} msgs={contactMsgs}/>
           <InputMsgWrap/>
         </ChatBar>
       </div>

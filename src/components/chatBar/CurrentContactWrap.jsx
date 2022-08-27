@@ -1,12 +1,13 @@
+import React from "react";
 import styles from './chatBar.module.css'
 
-const CurrentContactWrap = ({id, avatar, name}) => {
+const CurrentContactWrap = ({ data }) => {
     return (
         <div className={styles.currentContactWrap}>
             <div className={styles.imgWrap}>
-                <img src={avatar} alt="avatar" />
+                <img src={data.avatar} alt="avatar" />
             </div>
-            <h1 className={styles.contactName}>{name}</h1>
+            <div className={styles.contactName}>{data.name}</div>
         </div>
     )
 }

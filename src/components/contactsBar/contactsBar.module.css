@@ -1,6 +1,7 @@
 .contactsBar {
     /* width: 40%; */
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    flex-basis: 35%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,10 +9,12 @@
 
 .header {
     padding: 10px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid grey;
+    background-color: lightgray;
 }
 
 .header img {
+    height: 30px;
     border-radius: 50%;
 }
 
@@ -33,6 +36,7 @@
 
 .chats {
     margin: 0 0 20px 0;
+    color: blue;
 }
 
 .contactsListWrapper {
@@ -40,15 +44,18 @@
 }
 
 .contactsListItem {
+    width: 100%;
     display: flex;
+    align-items: center;
     cursor: pointer;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-bottom: 1px solid grey;
 }
 
 .contactsListItem:hover {
     background: blue;
     border: 1px solid blue;
+    border-radius: 8px;
     color: white;
 }
 
@@ -58,7 +65,27 @@
     border-radius: 50%;
 }
 
-.contactName {
+.contactWrap {
+    text-align: left;
     margin-left: 20px;
+    flex-grow: 1;
+}
+
+.contactName {
+    font-size: 16px;
+}
+
+.contactLastMsg {
+    color: gray;
+    font-size: 12px;
+}
+
+.contactLastDate {
+    align-self: flex-start;
+    white-space: nowrap;
+    margin-right: 5px;
+    text-align: right;
+    color: gray;
+    font-size: 12px;
 }
 
