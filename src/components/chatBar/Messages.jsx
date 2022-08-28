@@ -1,28 +1,14 @@
 import React from "react";
 import styles from './chatBar.module.css'
 
-// const Messages = ({ ...props }) => (
-//   <>
-//     {props.messages.map((item, index) => (
-//       <div className={item.myMessage?styles.myMsg:styles.contactMsg} key={index}>
-//         <div className={styles.textContainer}>
-//           <img src={props.avatar} alt="" />
-//           <span className={styles.msgText}>{item.message}</span>
-//         </div>
-//         <span className={styles.msgDate}>{item.messageDate}</span>
-//       </div>
-//     ))}
-//   </>
-// );
-
-const Messages = ({ index, message, messageDate, myMessage }) => {
+const Messages = ({ idx, message, messageDate, myMessage, data }) => {
   return (
-    <div className={myMessage?styles.myMsg:styles.contactMsg} key={index}>
+    <div className={myMessage?styles.myMsg:styles.contactMsg} key={idx}>
       <div className={styles.textContainer}>
-        {/* <img src={data.avatar} alt="" /> */}
+        {myMessage?<span></span>:<img src={data.avatar} alt={data.name} />}
         <span className={styles.msgText}>{message}</span>
       </div>
-         <span className={styles.msgDate}>{messageDate}</span>
+      <span className={styles.msgDate}>{messageDate}</span>
     </div>
   )
 }

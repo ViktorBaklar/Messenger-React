@@ -1,57 +1,55 @@
-import { Component } from "react"
-import uniqueId from 'lodash/uniqueId';
-import { Data } from './db/data'
-import ContactsBar from './components/contactsBar/ContactsBar'
-import Header from './components/contactsBar/Header'
-import ContactsList from './components/contactsBar/ContactsList'
+import { Component } from "react";
+import shortid from 'shortid';
+import { Data } from './db/data';
+import ContactsBar from './components/contactsBar/ContactsBar';
+import Header from './components/contactsBar/Header';
+import ContactsList from './components/contactsBar/ContactsList';
 import ChatBar from './components/chatBar/ChatBar';
-// import CurrentContactMsg from './components/chatBar/CurrentContactMsg'
-import CurrentContactWrap from './components/chatBar/CurrentContactWrap'
-import MsgWrap from './components/chatBar//MsgWrap'
-import InputMsgWrap from './components/chatBar//InputMsgWrap'
+import CurrentContactWrap from './components/chatBar/CurrentContactWrap';
+import MsgWrap from './components/chatBar//MsgWrap';
+import InputMsgWrap from './components/chatBar//InputMsgWrap';
+import Modal from './components/Modal/index';
+import AddContactForm from "./components/AddContactForm/AddContactForm";
 import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <ContactsBar/>
-//       <ChatBar/>
-//     </div>
-//   );
-// }
 
 class App extends Component {
   state = {
     contacts: Data,
     filter: '',
     activeID: 1,
+    open: false,
   };
 
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-    // console.log(parsedContacts)
     if (parsedContacts) this.setState({ contacts: parsedContacts });
-  }
+    const activeID = localStorage.getItem('activeID');
+    const parsedactiveID = JSON.parse(activeID);
+    if (parsedactiveID) this.setState({ activeID: parsedactiveID });
+  };
 
   componentDidUpdate(prevState) {
-    const { contacts: nowContacts } = this.state;
-    const { contacts: prevContacts } = prevState;
+    const { contacts: nowContacts, activeID: nowactiveID } = this.state;
+    const { contacts: prevContacts, activeID: prevactiveID } = prevState;
     if (nowContacts !== prevContacts) {
       localStorage.setItem('contacts', JSON.stringify(nowContacts));
-    }
-  }
+    };
+    if (nowactiveID !== prevactiveID) {
+      localStorage.setItem('activeID', JSON.stringify(nowactiveID));
+    };
+  };
 
-  addContact = ({ name }) => {
+  addContact = ({ name, avatar, messageDate }) => {
     const contact = {
-      id: uniqueId("prefix-"),
+      id: shortid.generate(),
       name,
-      avatar: 'https://i.pravatar.cc/30?20',
+      avatar,
       messages: [
         {
-          messageDate: '',
-          message: "",
-          myMessage: true
+          messageDate,
+          message: '',
+          myMessage: true,
         }
       ]
     }
@@ -60,17 +58,17 @@ class App extends Component {
 
     if (contacts.some(contact => contact.name === name)) {
       alert(`${name} is already in contacts.`);
-      // this.setState({ filter: name.currentTarget.value });
       return;
     }
 
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts]
+    this.setState((prevState) => ({
+      contacts: [contact, ...prevState.contacts],
+      activeID: contact.id
     }));
   };
 
   addMessage = (message, messageDate, contactIdAddMessage, myMessage) => {
-    const { contacts } = this.state;
+    const { contacts, activeID } = this.state;
     const newMessage = {
       message,
       messageDate,
@@ -84,8 +82,10 @@ class App extends Component {
     }});
     
     this.setState(({ contacts }));
-    //console.log(data);
     localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    
+    this.setState(({ activeID }));
+    localStorage.setItem('activeID', JSON.stringify(this.state.activeID))
     
   };
 
@@ -108,57 +108,40 @@ class App extends Component {
     );
   };
 
-  // setActiveID = () => {
-  //   const { contacts } = this.state
-  //   const sc = contacts.sort(
-  //     (a, b) =>
-  //       new Date(b.messages.at(-1).messageDate.toString()) -
-  //       new Date(a.messages.at(-1).messageDate.toString())
-  //     );
-  //   this.setState(() => ({
-  //     activeID: sc[0].id
-  //   } ))
-  // }
-
   activeContactChange = id => {
     this.setState(() => {
       return {activeID: id };
     });
   }
 
-  // showMsg = () => {
-  //   const { activeID, contacts } = this.state;
-  //   const activeContact = contacts.filter(contact => contact.id === activeID)
-  //   return activeContact[0]
-  // }
   showContactData = () => {
     const { activeID, contacts } = this.state;
     const activeContact = contacts.filter(contact => contact.id === activeID)
     return activeContact[0]
   }
-  showMsg = () => {
-    const { activeID, contacts } = this.state;
-    const activeContact = contacts.filter(contact => contact.id === activeID)
-    return activeContact[0].messages
+
+  hendleToggleModal = (isOpen) => {
+    this.setState((prevState) => ({open: isOpen ?? !prevState.open}))
   }
 
   render() {
     const filteredContacts = this.getFilteredContacts();
-    // const currentContact = this.showMsg();
     const currentContact = this.showContactData();
-    const contactMsgs = this.showMsg();
-    // const contactMsgs = currentContact.messages
+    const { open } = this.state
     return (
       <div className="App" >
         <ContactsBar>
-          <Header onSubmit={this.addContact} contactName={this.state.filter} onChange={this.filterHandler}/>
+          <Header onClick={this.hendleToggleModal} /* onSubmit={this.addContact} */ contactName={this.state.filter} onChange={this.filterHandler}/>
           <ContactsList items={filteredContacts} onContactClick={this.activeContactChange}/>
         </ContactsBar>
         <ChatBar>
           <CurrentContactWrap data={currentContact}/>
-          <MsgWrap data={currentContact} msgs={contactMsgs}/>
+          <MsgWrap data={currentContact}/>
           <InputMsgWrap addMessage={this.addMessage} activeID={this.state.activeID}/>
         </ChatBar>
+        <Modal open={open} onClose={this.hendleToggleModal}>
+          <AddContactForm onSubmit={this.addContact}/>
+        </Modal>
       </div>
     );
   }

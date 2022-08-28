@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styles from './contactsBar.module.css'
 
 const ContactsListItem = ({ id, name, lastDate, lastMsg, avatar, onContactClick }) => {
@@ -18,9 +18,9 @@ const ContactsListItem = ({ id, name, lastDate, lastMsg, avatar, onContactClick 
 
 export default ContactsListItem
 
-ContactsListItem.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    lastDate: PropTypes.string.isRequired,
-    lastMsg: PropTypes.string.isRequired,
-  }
+// ContactsListItem.propTypes = {
+//     id: PropTypes.string.isRequired,
+//     name: PropTypes.string.isRequired,
+//     lastDate: PropTypes.string.isRequired,
+//     lastMsg: PropTypes.string.isRequired,
+//   }

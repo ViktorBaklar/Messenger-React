@@ -15,9 +15,9 @@
     background-color: lightgray;
 }
 
-.imgWrap {
+/* .imgWrap {
     padding: 10px;
-}
+} */
 
 .imgWrap img {
     height: 30px;
@@ -27,7 +27,7 @@
 
 .contactName {
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .msgWrap {
@@ -52,8 +52,24 @@
     text-align: right;
 }
 
+.textContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .myMsg .textContainer {
     align-self: end;
+}
+
+/* .contactMsg .textContainer {
+    align-self: start;
+} */
+
+.textContainer img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .msgText {
@@ -62,16 +78,10 @@
     font-size: 16px;
     padding: 5px;
     border-radius: 16px;
-    /* box-sizing: border-box; */
-    /* width: 100%; */
-    /* max-width: 400px; */
-    /* max-width: 80%; */
     text-align: left;
 }
 
 .myMsg .msgText {
-    align-self: end;
-    /* text-align: right; */
     background-color: lightgray;
 }
 
@@ -83,6 +93,7 @@
 .contactMsg .msgText {
     background-color: darkgray;
     color: white;
+    max-width: 80%;
 }
 
 .msgDate {
@@ -91,27 +102,53 @@
 }
 
 .inputMsgWrap {
-    position: relative;
+    /* position: relative; */
     padding: 10px;
     background-color: lightgray;
     border-top: 1px solid grey;
     height: 40px;
 }
 
-.button {
+.msgInputForm {
+    position: relative;
+    display: flex;
+    align-content: center;
+}
+
+.inpMsgButton {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
+    margin-right: 5px;
     cursor: pointer;
     height: 30px;
     width: 30px;
-    align-self: center;
-    background-image:  url(https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/48/paper-plane-icon.png);
-    background-position: center;
-    background-origin: content-box;
     border-radius: 50%;
     border:1px solid rgb(215, 215, 215);
-    transform: translate(-50%, 50%);
+    transform: translate(0, -50%);
    
-    color:white;
 };
+
+.msgInputForm:focus .inpMsgButton {
+    color: rgb(33, 23, 184);
+}
+
+
+.inpMsgButton:hover {
+    border: 2px solid blue;
+}
+
+.buttonIcon {
+    /* display: inline-block; */
+    /* height: 20px; */
+    /* width: 30px; */
+    /* border-radius: 50%; */
+    /* fill: gray; */
+    display: inline-block;
+    /* width: 1em; */
+    /* height: 1em; */
+    stroke-width: 0;
+    stroke: rgb(24, 24, 24);
+    fill: rgb(24, 24, 24);
+    margin-top: 3px;
+}

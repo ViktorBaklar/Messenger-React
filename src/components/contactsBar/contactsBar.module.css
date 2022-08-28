@@ -22,6 +22,10 @@
     margin-bottom: 15px;
 }
 
+.formWrap {
+    position: relative;
+}
+
 .search {
     position: relative;
     display: flex;
@@ -35,6 +39,26 @@
     transform: translate(0, -50%);
     stroke: currentColor;
     fill: grey;
+}
+
+.addButton {
+    position: absolute;
+    margin-right: 1px;
+    height: 34px;
+    width: 34px;
+    border: none;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: grey;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.addButton:hover {
+    background-color: blue;
+    color: white;
 }
 
 .search:focus .searchIcon {

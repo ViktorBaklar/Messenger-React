@@ -1,5 +1,5 @@
 import style from './input.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Input = ({
   type = 'text',
@@ -28,13 +28,13 @@ const Input = ({
   );
 };
 
-Input.propTypes = {
-  type: PropTypes.string,
-  value: PropTypes.string,
-  className: PropTypes.string,
-  name: PropTypes.string,
-  placeHolder: PropTypes.string,
-  onInput: PropTypes.func,
-};
+// Input.propTypes = {
+//   type: PropTypes.string,
+//   value: PropTypes.string,
+//   className: PropTypes.string,
+//   name: PropTypes.string,
+//   placeHolder: PropTypes.string,
+//   onInput: PropTypes.func,
+// };
 
 export default Input;

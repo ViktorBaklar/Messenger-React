@@ -1,17 +1,6 @@
-// import styles from './chatBar.module.css'
-
-// const InputMsgWrap = ({value, onSubmit}) => {
-    //     return (
-        //         <div className={styles.inputMsgWrap}>
-        //             <Input placeHolder='Type your message' value={value} onSubmit={onSubmit}/>
-        //         </div>
-        //     )
-        // }
-        
-        // export default InputMsgWrap
-        
 import { Component } from "react";
 import Input from '../UI/input/input'
+import {ReactComponent as ReactLogo} from '../../svg/send.svg'
 import styles from './chatBar.module.css';
 
 class InputMsgWrap extends Component {
@@ -62,8 +51,8 @@ class InputMsgWrap extends Component {
                 onChange={this.onInputChange}
                 required
             />
-            <button
-                className={styles.button} type="submit"> 
+            <button className={styles.inpMsgButton}>
+                <ReactLogo className={styles.buttonIcon}/>
             </button>
         </form>
       </div>
