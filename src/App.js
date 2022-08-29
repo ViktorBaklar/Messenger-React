@@ -110,9 +110,7 @@ class App extends Component {
   };
 
   activeContactChange = id => {
-    this.setState(() => {
-      return {activeID: id };
-    });
+    this.setState(() => ({activeID: id}));
   }
 
   showContactData = () => {

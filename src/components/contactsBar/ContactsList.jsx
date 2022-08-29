@@ -1,9 +1,7 @@
-
 import ContactsListItem from './ContactsListItem'
 import styles from './contactsBar.module.css'
 
 const ContactsList = ({ items, onContactClick }) => {
-
     return (
         <div className={styles.contactsList}>
             <h1 className={styles.chats}>
