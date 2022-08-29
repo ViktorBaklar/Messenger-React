@@ -3,8 +3,6 @@ import ContactsListItem from './ContactsListItem'
 import styles from './contactsBar.module.css'
 
 const ContactsList = ({ items, onContactClick }) => {
-    // const store = useStore()
-    // const contactsList = store.contacts
 
     return (
         <div className={styles.contactsList}>

@@ -6,14 +6,13 @@ import styles from './addContactForm.module.css'
 class AddContactForm extends Component {
     state = {
         name: '',
-        avatar: 'https://i.pravatar.cc/30?20',
+        avatar: `https://i.pravatar.cc/30?img=${Math.round(Math.random()* (60 - 10) + 1)}`,
         messageDate: new Date().toString()
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { onSubmit } = this.props
-
+        const { onSubmit } = this.props 
         onSubmit && onSubmit({ ...this.state })
     }
 

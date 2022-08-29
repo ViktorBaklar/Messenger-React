@@ -1,6 +1,4 @@
 .contactsBar {
-    /* width: 40%; */
-    /* flex-grow: 1; */
     flex-basis: 35%;
     height: 100vh;
     display: flex;

@@ -1,5 +1,4 @@
 import styles from './modal.module.css'
-// import Input from '../UI/input/input'
 import Button from '../UI/button/button'
 
 const Modal = ({ open, children, onClose }) => {

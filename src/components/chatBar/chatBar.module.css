@@ -1,6 +1,5 @@
 .chatBar {
     border-left: 1px solid grey;
-    /* flex-grow: 2; */
     flex-basis: 65%;
     height: 100vh;
     display: flex;
@@ -14,10 +13,6 @@
     border-bottom: 1px solid grey;
     background-color: lightgray;
 }
-
-/* .imgWrap {
-    padding: 10px;
-} */
 
 .imgWrap img {
     height: 30px;
@@ -46,8 +41,6 @@
 .myMsg {
     display: flex;
     flex-direction: column;
-    /* align-content: end; */
-    /* justify-content: end; */
     margin-bottom: 20px;
     text-align: right;
 }
@@ -60,10 +53,6 @@
 .myMsg .textContainer {
     align-self: end;
 }
-
-/* .contactMsg .textContainer {
-    align-self: start;
-} */
 
 .textContainer img {
     height: 30px;
@@ -102,7 +91,6 @@
 }
 
 .inputMsgWrap {
-    /* position: relative; */
     padding: 10px;
     background-color: lightgray;
     border-top: 1px solid grey;
@@ -139,14 +127,7 @@
 }
 
 .buttonIcon {
-    /* display: inline-block; */
-    /* height: 20px; */
-    /* width: 30px; */
-    /* border-radius: 50%; */
-    /* fill: gray; */
     display: inline-block;
-    /* width: 1em; */
-    /* height: 1em; */
     stroke-width: 0;
     stroke: rgb(24, 24, 24);
     fill: rgb(24, 24, 24);

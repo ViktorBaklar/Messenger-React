@@ -2,7 +2,7 @@ export const Data = [
     {
         "id": 1,
         "name": "Alice Freeman",
-        "avatar": "https://vjoy.cc/wp-content/uploads/2020/10/f9b312787361402f34c402a170da4ef8-1248x1536.jpg",
+        "avatar": "https://i.pravatar.cc/30?img=1",
         "messages": [
           {
             "messageDate": "2017-06-12T08:25:43.511Z",
@@ -19,7 +19,7 @@ export const Data = [
     {
       "id": 2,
       "name": "Josefina",
-      "avatar": "https://vjoy.cc/wp-content/uploads/2020/10/da741321fed2fc603a92b5cb13101ecc.png",
+      "avatar": "https://i.pravatar.cc/30?img=3",
       "messages": [
         {
           "messageDate": "2017-04-22T16:00:43.511Z",
@@ -41,7 +41,7 @@ export const Data = [
     {
       "id": 3,
       "name": "Velazquez",
-      "avatar": "https://vjoy.cc/wp-content/uploads/2020/10/6509e0ad6e65fdc29fff70170af2dedd.jpg",
+      "avatar": "https://i.pravatar.cc/30?img=4",
       "messages": [
         {
           "messageDate": "2017-03-18T18:25:43.511Z",
@@ -53,7 +53,7 @@ export const Data = [
     {
       "id": 4,
       "name": "Barrera",
-      "avatar": "https://vjoy.cc/wp-content/uploads/2020/10/a63b1e80c31ac92374ec4a15f7045f4d.jpg",
+      "avatar": "https://i.pravatar.cc/30?img=5",
       "messages": [
         {
           "messageDate": "2017-02-10T13:52:43.511Z",

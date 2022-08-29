@@ -65,6 +65,7 @@ class App extends Component {
       contacts: [contact, ...prevState.contacts],
       activeID: contact.id
     }));
+    this.hendleToggleModal()
   };
 
   addMessage = (message, messageDate, contactIdAddMessage, myMessage) => {
@@ -131,7 +132,7 @@ class App extends Component {
     return (
       <div className="App" >
         <ContactsBar>
-          <Header onClick={this.hendleToggleModal} /* onSubmit={this.addContact} */ contactName={this.state.filter} onChange={this.filterHandler}/>
+          <Header onClick={this.hendleToggleModal} contactName={this.state.filter} onChange={this.filterHandler}/>
           <ContactsList items={filteredContacts} onContactClick={this.activeContactChange}/>
         </ContactsBar>
         <ChatBar>
