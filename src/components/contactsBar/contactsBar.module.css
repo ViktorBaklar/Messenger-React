@@ -1,0 +1,137 @@
+.contactsBar {
+    flex-basis: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    background-color: lightgray;
+}
+
+.header img {
+    height: 30px;
+    border-radius: 50%;
+}
+
+.userAvatar {
+    margin-bottom: 15px;
+}
+
+.formWrap {
+    position: relative;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-content: center;
+}
+
+.searchIcon {
+    position: absolute;
+    height: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    stroke: currentColor;
+    fill: grey;
+}
+
+.addButton {
+    position: absolute;
+    margin-right: 1px;
+    height: 34px;
+    width: 34px;
+    border: none;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: grey;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.addButton:hover {
+    background-color: blue;
+    color: white;
+}
+
+.search:focus .searchIcon {
+    stroke: blue;
+    fill: blue;
+}
+
+.search input {
+    padding-left: 30px;
+}
+
+.contactsList {
+    padding: 10px;
+    overflow-y: scroll;
+    flex-grow: 1;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+.contactsList::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+.chats {
+    margin: 0 0 20px 0;
+    color: blue;
+}
+
+.contactsListWrapper {
+    padding: 5px 0 10px 0;
+}
+
+.contactsListItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.contactsListItem:hover {
+    background: blue;
+    border: 1px solid blue;
+    border-radius: 8px;
+    color: white;
+}
+
+.avatarImg img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.contactWrap {
+    text-align: left;
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.contactName {
+    font-size: 16px;
+}
+
+.contactLastMsg {
+    color: gray;
+    font-size: 12px;
+}
+
+.contactLastDate {
+    align-self: flex-start;
+    white-space: nowrap;
+    margin-right: 5px;
+    text-align: right;
+    color: gray;
+    font-size: 12px;
+}
+

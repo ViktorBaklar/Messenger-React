@@ -1,0 +1,135 @@
+.chatBar {
+    border-left: 1px solid grey;
+    flex-basis: 65%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+}
+
+.currentContactWrap {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    background-color: lightgray;
+}
+
+.imgWrap img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.contactName {
+    padding-left: 10px;
+    font-size: 30px;
+}
+
+.msgWrap {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+.msgWrap::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+.myMsg {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.myMsg .textContainer {
+    align-self: end;
+}
+
+.textContainer img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.msgText {
+    display: flex;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 16px;
+    text-align: left;
+}
+
+.myMsg .msgText {
+    background-color: lightgray;
+}
+
+.contactMsg {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contactMsg .msgText {
+    background-color: darkgray;
+    color: white;
+    max-width: 80%;
+}
+
+.msgDate {
+    font-size: 8px;
+    color: gray;
+}
+
+.inputMsgWrap {
+    padding: 10px;
+    background-color: lightgray;
+    border-top: 1px solid grey;
+    height: 40px;
+}
+
+.msgInputForm {
+    position: relative;
+    display: flex;
+    align-content: center;
+}
+
+.inpMsgButton {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border:1px solid rgb(215, 215, 215);
+    transform: translate(0, -50%);
+   
+};
+
+.msgInputForm:focus .inpMsgButton {
+    color: rgb(33, 23, 184);
+}
+
+
+.inpMsgButton:hover {
+    border: 2px solid blue;
+}
+
+.buttonIcon {
+    display: inline-block;
+    stroke-width: 0;
+    stroke: rgb(24, 24, 24);
+    fill: rgb(24, 24, 24);
+    margin-top: 3px;
+}

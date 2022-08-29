@@ -1,0 +1,37 @@
+.modal {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000060;
+    overflow: auto;
+}
+
+.modalInner {
+    position: relative;
+    background: #fff;
+    padding: 60px 20px 20px 20px;
+    max-width: 450px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    margin-right: 4px;
+    margin-top: 4px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.closeBtn:hover {
+    border: 1px solid blue;
+    color: blue;
+}
